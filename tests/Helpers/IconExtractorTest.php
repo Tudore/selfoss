@@ -2,7 +2,7 @@
 
 namespace Tests\Helpers;
 
-use helpers\Image;
+use helpers\ImageUtils;
 use PHPUnit\Framework\TestCase;
 
 final class IconExtractorTest extends TestCase {
@@ -21,7 +21,7 @@ final class IconExtractorTest extends TestCase {
 EOD;
 
         $this->assertEquals(
-            Image::parseShortcutIcons($page),
+            ImageUtils::parseShortcutIcons($page),
             [
                 'https://www.example.com/images/apple-touch-114x114.png',
             ]
@@ -43,7 +43,7 @@ EOD;
 EOD;
 
         $this->assertEquals(
-            Image::parseShortcutIcons($page),
+            ImageUtils::parseShortcutIcons($page),
             [
                 'https://www.example.com/images/apple-touch-precomposed-114x114.png',
             ]
@@ -65,7 +65,7 @@ EOD;
 EOD;
 
         $this->assertEquals(
-            Image::parseShortcutIcons($page),
+            ImageUtils::parseShortcutIcons($page),
             [
                 'https://www.example.com/images/apple-touch-114x114.png',
             ]
@@ -87,7 +87,7 @@ EOD;
 EOD;
 
         $this->assertEquals(
-            Image::parseShortcutIcons($page),
+            ImageUtils::parseShortcutIcons($page),
             [
                 'https://www.example.com/favicon.ico',
             ]
@@ -109,7 +109,7 @@ EOD;
 EOD;
 
         $this->assertEquals(
-            Image::parseShortcutIcons($page),
+            ImageUtils::parseShortcutIcons($page),
             [
                 'https://www.example.com/favicon.ico',
             ]
@@ -133,7 +133,7 @@ EOD;
 EOD;
 
         $this->assertEquals(
-            Image::parseShortcutIcons($page),
+            ImageUtils::parseShortcutIcons($page),
             [
                 '/favicon.png',
                 '/favicon.ico',
@@ -158,7 +158,7 @@ EOD;
 EOD;
 
         $this->assertEquals(
-            Image::parseShortcutIcons($page),
+            ImageUtils::parseShortcutIcons($page),
             [
                 'https://www.example.com/images/apple-touch-114x114.png',
                 '/favicon.ico',
@@ -182,7 +182,7 @@ EOD;
 EOD;
 
         $this->assertEquals(
-            Image::parseShortcutIcons($page),
+            ImageUtils::parseShortcutIcons($page),
             [
                 'https://www.example.com/images/apple-touch-114x114.png',
                 'https://www.example.com/images/apple-touch-precomposed-87x87.png',
@@ -206,7 +206,7 @@ EOD;
 EOD;
 
         $this->assertEquals(
-            Image::parseShortcutIcons($page),
+            ImageUtils::parseShortcutIcons($page),
             [
                 'https://www.example.com/images/apple-touch-precomposed-114x114.png',
                 'https://www.example.com/images/apple-touch-114x114.png',
@@ -223,7 +223,7 @@ EOD;
 EOD;
 
         $this->assertEquals(
-            Image::parseShortcutIcons($page),
+            ImageUtils::parseShortcutIcons($page),
             [
                 '//www.example.com/favicons/favicon-196x196.png',
                 '//www.example.com/favicons/apple-touch-icon-152x152.png',
@@ -246,7 +246,7 @@ EOD;
 EOD;
 
         $this->assertEquals(
-            Image::parseShortcutIcons($page),
+            ImageUtils::parseShortcutIcons($page),
             []
         );
     }
@@ -266,7 +266,7 @@ EOD;
 EOD;
 
         $this->assertEquals(
-            Image::parseShortcutIcons($page),
+            ImageUtils::parseShortcutIcons($page),
             []
         );
     }
@@ -288,7 +288,7 @@ console.log('<link rel="icon" href="https://www.example.com/favicon.ico">');
 EOD;
 
         $this->assertEquals(
-            Image::parseShortcutIcons($page),
+            ImageUtils::parseShortcutIcons($page),
             []
         );
     }
